@@ -22,4 +22,5 @@ node {
         error("Docker push failed")
      }
    }
+ }
 }
