@@ -12,8 +12,10 @@ node {
      }
    }
    stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
-       def app = docker.build("hackurrr/demo-nodepapp:v2", '.').push()
+  docker.withRegistry('https://index.docker.io/v2/', 'dockerhub') {
+    def app = docker.build("hackurrr/demo-nodepapp:v2", '.')
+    sh 'docker images' // Print Docker images for debugging
+    app.push()
      }
    }
 }
